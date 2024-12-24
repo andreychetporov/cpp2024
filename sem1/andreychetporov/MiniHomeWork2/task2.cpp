@@ -1,30 +1,26 @@
-﻿
-
 #include <iostream>
+
+bool Sirakyza(int n) {
+    while (n != 1) {
+        if (n % 2 == 0) {
+            n /= n;
+        }
+        else {
+            n = (3 * n + 1) / 2;
+        }
+    }
+    if (n == 1) {
+        return true;
+    }
+}
 
 int main()
 {
-    int n;
     setlocale(LC_ALL, "RU");
-    for (int i = 2; i < 100000; i++) {
-        n = i;
-        while (n != 1) {
-            if (n % 2 == 0) {
-                n /= n;
-            }
-            else {
-                n = (3 * n + 1) / 2;
-            }
-            if (n == 1) {
-                std::cout << "число " << i << " удовлетворяет гипотезе Сиракуза"<<"\n";
-            }
-
-        }
-
-
-
-
+    int n;
+    std::cout << "Введите число \n";
+    std::cin >> n;
+    if (Sirakyza(n)) {
+        std::cout << "Число " << n << " удовлетворяет гипотезе Сиракуза";
     }
-    std::cout << "первые 100000 натуральных чисел удовлетворяют гипотезе Сиракуза";
 }
-
